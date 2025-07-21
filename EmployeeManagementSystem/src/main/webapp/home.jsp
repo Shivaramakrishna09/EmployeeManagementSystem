@@ -37,6 +37,15 @@ h2 {
 </head>
 <body>
 
+	<%
+	
+		if(session == null || session.getAttribute("userName") == null){
+			response.sendRedirect("login.jsp");
+			return;
+		}
+	
+	%>
+
 	<div class="container d-flex justify-content-center">
 		<div class="card p-5 w-50 text-center">
 			<h2 class="mb-4">Employee Management System</h2>

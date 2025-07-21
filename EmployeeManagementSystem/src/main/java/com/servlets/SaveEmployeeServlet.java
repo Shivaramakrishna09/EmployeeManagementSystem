@@ -21,6 +21,7 @@ public class SaveEmployeeServlet extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("id"));
         String name = req.getParameter("name");
         String email = req.getParameter("email");
+        String pass = req.getParameter("pass");
         int experience = Integer.parseInt(req.getParameter("experience"));
         String salary = req.getParameter("salary");
 
@@ -36,12 +37,13 @@ public class SaveEmployeeServlet extends HttpServlet {
             Class.forName(driver);
             connection = DriverManager.getConnection(url, user, password);
             statement = connection.prepareStatement(
-                "INSERT INTO employee(id, name, email, experience, salary) VALUES(?, ?, ?, ?, ?)");
+                "INSERT INTO employee(id, name, email, experience, salary, password) VALUES(?, ?, ?, ?, ?, ?)");
             statement.setInt(1, id);
             statement.setString(2, name);
             statement.setString(3, email);
             statement.setInt(4, experience);
             statement.setString(5, salary);
+            statement.setString(6, password);
             statement.executeUpdate();
 
             System.out.println("Employee inserted successfully");
