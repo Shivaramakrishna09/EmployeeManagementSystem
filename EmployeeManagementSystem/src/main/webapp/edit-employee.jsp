@@ -1,6 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ page import="com.dto.Employee"%>
 <%
+response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+response.setHeader("Pragma", "no-cache");
+response.setDateHeader("Expires", 0);
+
+request.getSession(false);
+if (session == null || session.getAttribute("userName") == null) {
+	response.sendRedirect("login.jsp");
+}
+%>
+<%
 Employee emp = (Employee) request.getAttribute("emp");
 if (emp == null) {
 %>

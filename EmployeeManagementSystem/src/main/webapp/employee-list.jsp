@@ -4,6 +4,16 @@
 <html>
 <head>
 <title>Employee List</title>
+<%
+response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+response.setHeader("Pragma", "no-cache");
+response.setDateHeader("Expires", 0);
+
+request.getSession(false);
+if (session == null || session.getAttribute("userName") == null) {
+	response.sendRedirect("login.jsp");
+}
+%>
 <style>
 table {
 	width: 90%;
@@ -78,8 +88,9 @@ h2 {
 				<td><%=emp.getEmail()%></td>
 				<td><%=emp.getExperience()%></td>
 				<td><%=emp.getSalary()%></td>
-				<td><a href="edit?id=<%= emp.getId() %>" class="btn btn-warning btn-sm"><strong>Edit</strong></a>
-					| <a href="delete?id=<%=emp.getId()%>"
+				<td><a href="edit?id=<%=emp.getId()%>"
+					class="btn btn-warning btn-sm"><strong>Edit</strong></a> | <a
+					href="delete?id=<%=emp.getId()%>"
 					onclick="return confirm('Are you sure?')"><strong>Delete</strong></a></td>
 			</tr>
 			<%

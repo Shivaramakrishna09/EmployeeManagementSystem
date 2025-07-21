@@ -21,7 +21,7 @@ public class SaveEmployeeServlet extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("id"));
         String name = req.getParameter("name");
         String email = req.getParameter("email");
-        String pass = req.getParameter("pass");
+        String pass = req.getParameter("password");
         int experience = Integer.parseInt(req.getParameter("experience"));
         String salary = req.getParameter("salary");
 
@@ -43,7 +43,7 @@ public class SaveEmployeeServlet extends HttpServlet {
             statement.setString(3, email);
             statement.setInt(4, experience);
             statement.setString(5, salary);
-            statement.setString(6, password);
+            statement.setString(6, pass);
             statement.executeUpdate();
 
             System.out.println("Employee inserted successfully");

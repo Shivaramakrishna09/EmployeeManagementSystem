@@ -4,7 +4,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Add New Employee</title>
+<%
+response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+response.setHeader("Pragma", "no-cache");
+response.setDateHeader("Expires", 0);
 
+request.getSession(false);
+if(session == null || session.getAttribute("userName") == null){
+	response.sendRedirect("login.jsp");
+}
+
+
+%>
 <!-- Bootstrap CSS CDN -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -58,7 +69,7 @@ h2 {
 						type="email" name="email" id="email" class="form-control"
 						placeholder="Enter Email Address" required>
 				</div>
-				
+
 				<div class="mb-3">
 					<label for="password" class="form-label">PassWord</label> <input
 						type="password" name="password" id="password" class="form-control"

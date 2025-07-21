@@ -43,7 +43,7 @@ body {
 
 	<div class="container login-container d-flex justify-content-center">
 		<div class="card w-50">
-			<h3 class="text-center mb-4">Employee Management Login</h3>
+			<h3 class="text-center mb-4">Employee Login</h3>
 
 
 			<form action="LoginServlet" method="post">
